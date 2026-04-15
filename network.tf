@@ -149,7 +149,7 @@ resource "oci_core_security_list" "private_security_list" {
 }
 
 resource "oci_core_subnet" "public_subnet" {
-    cidr_block                 = "${var.network_cidr}.0.0/24"
+    cidr_block                 = "${var.network_cidr}.0.0/22"
     display_name               = "SUBNET_PUBLIC_${var.network_name}"
     dns_label                  = "pub"
     prohibit_public_ip_on_vnic = "false"
@@ -160,7 +160,7 @@ resource "oci_core_subnet" "public_subnet" {
 }
 
 resource "oci_core_subnet" "private_subnet" {
-    cidr_block                 = "${var.network_cidr}.1.0/24"
+    cidr_block                 = "${var.network_cidr}.4.0/22"
     display_name               = "SUBNET_PRIVATE_${var.network_name}"
     dns_label                  = "prv"
     prohibit_public_ip_on_vnic = "true"
